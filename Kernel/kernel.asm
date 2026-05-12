@@ -201,7 +201,7 @@ option_screen:
 
 	; Data for the above code...
 
-	os_init_msg		db 'OpenSoftware-World OS 1.3 (Based on MikeOS v4.7.0)', 0
+	os_init_msg		db 'OpenSoftware-World OS 1.3 (Redesigned) (Based on MikeOS v4.7.0)', 0
 	os_version_msg		db 'Version ', MIKEOS_VER, 0
 
 	dialog_string_1		db 'Thanks for trying out OpenSoftware-World OS!', 0
