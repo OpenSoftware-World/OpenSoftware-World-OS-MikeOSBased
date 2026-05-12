@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script assembles the OpenSoftware-World OS bootloader, kernel and programs
+# This script assembles the OpenSoftware-World OS (MikeOSBased) bootloader, kernel and programs
 # with NASM, and then creates floppy and CD images (on OpenBSD)
 
 # Only the root user can mount the floppy disk image as a virtual
@@ -17,11 +17,11 @@ if test "`whoami`" != "root" ; then
 fi
 
 
-if [ ! -e disk_images/opensoftware_world_os.flp ]
+if [ ! -e disk_images/opensoftware_world_os_mikeosbased.flp ]
 then
 	echo ">>> Creating new OpenSoftware-World OS floppy image..."
-	dd if=/dev/zero of=disk_images/opensoftware_world_os.flp bs=512 count=2880 || exit
-	vnconfig vnd3 disk_images/opensoftware_world_os.flp && newfs_msdos -f 1440 vnd3c && vnconfig -u vnd3 || exit
+	dd if=/dev/zero of=disk_images/opensoftware_world_os_mikeosbased.flp bs=512 count=2880 || exit
+	vnconfig vnd3 disk_images/opensoftware_world_os_mikeosbased.flp && newfs_msdos -f 1440 vnd3c && vnconfig -u vnd3 || exit
 fi
 
 
@@ -51,13 +51,13 @@ cd ..
 
 echo ">>> Adding bootloader to floppy image..."
 
-dd conv=notrunc if=source/bootload/bootload.bin of=disk_images/opensoftware_world_os.flp || exit
+dd conv=notrunc if=source/bootload/bootload.bin of=disk_images/opensoftware_world_os_mikeosbased.flp || exit
 
 
 echo ">>> Copying OpenSoftware-World OS kernel and programs..."
 
 rm -rf tmp-loop
-vnconfig vnd3 disk_images/opensoftware_world_os.flp || exit
+vnconfig vnd3 disk_images/opensoftware_world_os_mikeosbased.flp || exit
 
 mkdir tmp-loop && mount -t msdos /dev/vnd3c tmp-loop && cp Kernel/kernel.bin tmp-loop/
 
@@ -73,8 +73,8 @@ rm -rf tmp-loop
 
 echo ">>> Creating CD-ROM ISO image..."
 
-rm -f disk_images/opensoftware_world_os.iso
-mkisofs -quiet -V 'OpenSoftware-World OS' -r -J -o disk_images/opensoftware_world_os.iso -b opensoftware_world_os.flp disk_images/ || exit
+rm -f disk_images/opensoftware_world_os_mikeosbased.iso
+mkisofs -quiet -V 'OpenSoftware-World OS' -r -J -o disk_images/opensoftware_world_os_mikeosbased.iso -b opensoftware_world_os_mikeosbased.flp disk_images/ || exit
 
 echo '>>> Done!'
 

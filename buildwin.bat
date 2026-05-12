@@ -8,7 +8,7 @@ nasm -O0 -f bin -o boot.bin boot.asm
 cd ..
 
 cd Kernel
-echo Assembling OpenSoftware-World OS kernel...
+echo Assembling OpenSoftware-World OS (MikeOSBased) kernel...
 nasm -O0 -f bin -o kernel.bin kernel.asm
 
 echo Assembling programs...
@@ -20,11 +20,11 @@ cd ..
 
 echo Adding bootsector to disk image...
 cd disk_images
-dd count=2 seek=0 bs=512 if=..\Boot\boot.bin of=.\opensoftware_world_os.flp
+dd count=2 seek=0 bs=512 if=..\Boot\boot.bin of=.\opensoftware_world_os_mikeosbased.flp
 cd ..
 
 echo Mounting disk image...
-imdisk -a -f disk_images\opensoftware_world_os.flp -s 1440K -m B:
+imdisk -a -f disk_images\opensoftware_world_os_mikeosbased.flp -s 1440K -m B:
 
 echo Copying kernel and applications to disk image...
 copy Kernel\kernel.bin b:\

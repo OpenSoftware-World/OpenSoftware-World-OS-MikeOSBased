@@ -87,16 +87,16 @@ done
 echo "[okay] assembled all programs"
 cd ..
 
-cp disk_images/opensoftware_world_os.flp disk_images/opensoftware_world_os.dmg
+cp disk_images/opensoftware_world_os_mikeosbased.flp disk_images/opensoftware_world_os_mikeosbased.dmg
 echo "[okay] copied floppy image"
 
-dd conv=notrunc if=Boot/boot.bin of=disk_images/opensoftware_world_os.dmg || exit 1
+dd conv=notrunc if=Boot/boot.bin of=disk_images/opensoftware_world_os_mikeosbased.dmg || exit 1
 echo "[okay] added bootloader to image"
 
 tmp_file=$(mktemp -d /tmp/$(basename $0).XXXXXX)
 [ $? -ne 0 ] && echo "[halt] error creating a temp file" >&2 && exit 1
 
-dev=$(echo -n $(hdid -nobrowse -nomount disk_images/opensoftware_world_os.dmg))
+dev=$(echo -n $(hdid -nobrowse -nomount disk_images/opensoftware_world_os_mikeosbased.dmg))
 [ $? -ne 0 ] && echo "[halt] could not create disk from image" >&2 && exit 1
 
 mount -t msdos "$dev" "$tmp_file"
@@ -111,7 +111,7 @@ hdiutil detach "$dev"
 rm -rf "$tmp_file"
 echo "[okay] unmounted floppy image"
 
-rm -f disk_images/opensoftware_world_os.iso
-mkisofs -quiet -V 'OpenSoftware-World OS' -input-charset iso8859-1 -o disk_images/opensoftware_world_os.iso -b opensoftware_world_os.dmg disk_images/ || exit 1
+rm -f disk_images/opensoftware_world_os_mikeosbased.iso
+mkisofs -quiet -V 'OpenSoftware-World OS' -input-charset iso8859-1 -o disk_images/opensoftware_world_os_mikeosbased.iso -b opensoftware_world_os_mikeosbased.dmg disk_images/ || exit 1
 echo "[okay] converted floppy to ISO-8859-1 image"
 echo "[done] build completed"

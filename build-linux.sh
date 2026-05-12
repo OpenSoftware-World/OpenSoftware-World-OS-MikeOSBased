@@ -6,7 +6,7 @@
 # Only the root user can mount the floppy disk image as a virtual
 # drive (loopback mounting), in order to copy across the files
 
-# (If you need to blank the floppy image: 'mkdosfs disk_images/opensoftware_world_os.flp')
+# (If you need to blank the floppy image: 'mkdosfs disk_images/opensoftware_world_os_mikeosbased.flp')
 
 
 if test "`whoami`" != "root" ; then
@@ -16,10 +16,10 @@ if test "`whoami`" != "root" ; then
 fi
 
 
-if [ ! -e disk_images/opensoftware_world_os.flp ]
+if [ ! -e disk_images/opensoftware_world_os_mikeosbased.flp ]
 then
 	echo ">>> Creating new OpenSoftware-World OS floppy image..."
-	mkdosfs -C disk_images/opensoftware_world_os.flp 1440 || exit
+	mkdosfs -C disk_images/opensoftware_world_os_mikeosbased.flp 1440 || exit
 fi
 
 
@@ -49,14 +49,14 @@ cd ..
 
 echo ">>> Adding bootloader to floppy image..."
 
-dd status=noxfer conv=notrunc if=Boot/boot.bin of=disk_images/opensoftware_world_os.flp || exit
+dd status=noxfer conv=notrunc if=Boot/boot.bin of=disk_images/opensoftware_world_os_mikeosbased.flp || exit
 
 
 echo ">>> Copying OpenSoftware-World OS kernel and programs..."
 
 rm -rf tmp-loop
 
-mkdir tmp-loop && mount -o loop -t vfat disk_images/opensoftware_world_os.flp tmp-loop && cp Kernel/kernel.bin tmp-loop/
+mkdir tmp-loop && mount -o loop -t vfat disk_images/opensoftware_world_os_mikeosbased.flp tmp-loop && cp Kernel/kernel.bin tmp-loop/
 
 cp Apps/*.app Apps/*.bas Apps/sample.pcx Apps/vedithlp.txt Apps/gen.4th Apps/hello.512 tmp-loop
 
@@ -71,8 +71,8 @@ rm -rf tmp-loop
 
 echo ">>> Creating CD-ROM ISO image..."
 
-rm -f disk_images/opensoftware_world_os.iso
-mkisofs -quiet -V 'OpenSoftware-World OS' -input-charset iso8859-1 -o disk_images/opensoftware_world_os.iso -b opensoftware_world_os.flp disk_images/ || exit
+rm -f disk_images/opensoftware_world_os_mikeosbased.iso
+mkisofs -quiet -V 'OpenSoftware-World OS' -input-charset iso8859-1 -o disk_images/opensoftware_world_os_mikeosbased.iso -b opensoftware_world_os_mikeosbased.flp disk_images/ || exit
 
 echo '>>> Done!'
 
