@@ -43,6 +43,9 @@ Desktop.ini
 htmlcov/
 .ipynb_checkpoints/
 *.o
+*.app
+!Apps/oswcalc.app
+!Apps/sysinfo.app
 !Sysinfo/sysinfo.o
 *.obj
 *.exe

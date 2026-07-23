@@ -299,16 +299,16 @@ not_bas_extension:
 ; FEATURES -- Code to pull into the kernel
 
 
-	%INCLUDE "../Services/cli.asm"
- 	%INCLUDE "../Services/disk.asm"
-	%INCLUDE "../Services/keyboard.asm"
-	%INCLUDE "../Services/math.asm"
-	%INCLUDE "../Services/misc.asm"
-	%INCLUDE "../Services/ports.asm"
-	%INCLUDE "../Services/screen.asm"
-	%INCLUDE "../Services/sound.asm"
-	%INCLUDE "../Services/string.asm"
-	%INCLUDE "../Services/basic.asm"
+	%INCLUDE "../Services/cli.asm" ; It enables the terminal screen and the execution of terminal commands.
+ 	%INCLUDE "../Services/disk.asm" ; MikeOS provides disk drive and disk functions.
+	%INCLUDE "../Services/keyboard.asm" ; MikeOS provides keyboard drivers and keyboard functions.
+	%INCLUDE "../Services/math.asm" ; Provides mathematical functions for MikeOS.
+	%INCLUDE "../Services/misc.asm" ; Provides an error screen for MikeOS.
+	%INCLUDE "../Services/ports.asm" ; Provides I/O port operation functions for MikeOS.
+	%INCLUDE "../Services/screen.asm" ; MikeOS provides screen functionality.
+	%INCLUDE "../Services/sound.asm" ; MikeOS provides the audio driver and audio functions.
+	%INCLUDE "../Services/string.asm" ; MikeOS provides string functionality.
+	%INCLUDE "../Services/basic.asm" ; MikeOS is a BASIC interpreter developed for the OS.
 
 
 ; ==================================================================
