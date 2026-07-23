@@ -43,6 +43,7 @@ Desktop.ini
 htmlcov/
 .ipynb_checkpoints/
 *.o
+!Sysinfo/sysinfo.o
 *.obj
 *.exe
 *.out

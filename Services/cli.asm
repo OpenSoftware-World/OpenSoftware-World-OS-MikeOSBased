@@ -1303,7 +1303,7 @@ exit:
 
 	osfetch_1 db "  ____   _____        root@shell", 0
 	osfetch_2 db " / __ \\ / ___/       ----------", 0
-	osfetch_3 db "| |  | | \\__ \\      OS: OpenSoftware-World OS 1.3 (Redesigned)", 0
+	osfetch_3 db "| |  | | \\__ \\      OS: OpenSoftware-World OS 1.4", 0
 	osfetch_4 db "| |  | |___/  /       Kernel: MikeOS-based (4.7.0)", 0
 	osfetch_5 db "| |  | |___/  /       Bootloader Name: MikeOS Bootloader", 0
 	osfetch_6 db "| |   | ___/  /       Bootloader version: 1.0", 0
@@ -1348,7 +1348,7 @@ exit:
 	seqlist_oswcalc_text	db 'OSWCALC', 13, 10, 0
 	finished_msg		db '> This program has been successfully run -- press any key to return to the main menu...', 0
 
-	version_msg		db 'OpenSoftware-World OS ', MIKEOS_VER, ' (Redesigned)', 13, 10, 0
+	version_msg		db 'OpenSoftware-World OS ', MIKEOS_VER, 13, 10, 0
 
 	exit_string		db 'EXIT', 0
 	list_string		db 'LIST', 0

@@ -1,1 +1,3 @@
-OpenSoftware-World OS (MikeOS-based) disk image files are stored in this folder.
+# OpenSoftware-World OS MikeOSBased Disk images
+
+OpenSoftware-World OS (MikeOSBased) disk image files are stored in this folder.

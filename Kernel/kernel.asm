@@ -13,7 +13,7 @@
 	CPU 386				; pusha offsets depends on a 386 or better
 					; FS and GS require a 386 or better
 
-	%DEFINE MIKEOS_VER '1.3'	; OS version number
+	%DEFINE MIKEOS_VER '1.4'	; OS version number
 	%DEFINE MIKEOS_API_VER 18	; API version for programs to check
 
 
@@ -24,7 +24,7 @@
 	disk_buffer	equ	24576
 
 
-%INCLUDE "Kernel/Calls/calls.asm"
+%INCLUDE "../Kernel/Calls/calls.asm"
 
 ; ------------------------------------------------------------------
 ; START OF MAIN KERNEL CODE
@@ -120,8 +120,8 @@ option_screen:
 
 	; Data for the above code...
 
-	os_init_msg		db 'OpenSoftware-World OS 1.3 (Redesigned) (Based on MikeOS v4.7.0)', 0
-	os_version_msg		db 'Version ', MIKEOS_VER, ' (Redesigned)', 0
+	os_init_msg		db 'OpenSoftware-World OS 1.4 (Based on MikeOS v4.7.0)', 0
+	os_version_msg		db 'Version ', MIKEOS_VER, 0
 
 	dialog_string_1		db 'Thanks for trying out OpenSoftware-World OS!', 0
 	dialog_string_2		db 'Please select an interface: OK for the', 0

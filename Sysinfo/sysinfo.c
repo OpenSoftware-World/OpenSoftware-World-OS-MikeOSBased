@@ -2,19 +2,18 @@
 
 int	MikeMain(void *argument)
 {
-	static char Buf[256];
-	static char mikeos_api_version[16];
+	static char mikeos_api_version[4];
 	static int  get_mikeos_api_version;
 
-	mikeos_draw_background("System Information", "v1.2", 0x001f);
+	mikeos_draw_background("System Information", "v1.3", 0x001f);
 
-	mikeos_print_string("System Information for OpenSoftware-World OS (MikeOSBased) v1.3 (Redesigned)");
+	mikeos_print_string("System Information for OpenSoftware-World OS (MikeOSBased) v1.4");
 	mikeos_print_newline();
 
 	mikeos_print_newline();
 	mikeos_print_string("OS Name: OpenSoftware-World OS (MikeOSBased)");
 	mikeos_print_newline();
-	mikeos_print_string("OS Version: 1.3 (Redesigned)");
+	mikeos_print_string("OS Version: 1.4");
 	mikeos_print_newline();
 	mikeos_print_string("OS Base: MikeOS");
 	mikeos_print_newline();
@@ -24,7 +23,7 @@ int	MikeMain(void *argument)
 	mikeos_print_newline();
 	mikeos_print_string("OS Shell Version: 1.2");
 	mikeos_print_newline();
-	mikeos_print_string("System Information Version: 1.2");
+	mikeos_print_string("System Information Version: 1.3");
 	mikeos_print_newline();
 
 	get_mikeos_api_version = mikeos_get_api_version();
