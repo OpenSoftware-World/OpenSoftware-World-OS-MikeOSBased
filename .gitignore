@@ -49,6 +49,7 @@ htmlcov/
 !Sysinfo/sysinfo.o
 *.obj
 *.exe
+*.bin
 *.out
 cmake-build-*/
 CMakeFiles/
