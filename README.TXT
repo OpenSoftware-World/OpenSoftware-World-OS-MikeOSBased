@@ -1,3 +1,5 @@
+Warning: This project has been archived and will no longer be developed because it has fulfilled its purpose; in short, the project has achieved its goal.
+
 ==================================================================
 MikeOS -- Open source 16-bit operating system for x86 PCs
 Copyright (C) 2006 - 2022 MikeOS Developers -- see doc/LICENSE.TXT
